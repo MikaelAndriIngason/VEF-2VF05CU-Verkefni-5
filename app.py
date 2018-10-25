@@ -1,6 +1,11 @@
-# coding=UTF-8
+#!/usr/bin/env python
+# -*- coding: utf-8 -*-
 
-import urllib.request, json
+import os
+from os import environ as env
+from sys import argv
+
+import bottle
 from bottle import run, route, static_file, error, request, default_app, get, response, template, redirect
 import time
 import html
@@ -37,5 +42,4 @@ def sida2():
 
     return template('submit', nafn=nafn, heim=heim, email=email, simi=simi, nam=nam, timi=timi, dagar=dagar)
 
-if __name__ == "__main__":
-    run(debug=True)
+bottle.run(host='0.0.0.0', port=argv[1])
